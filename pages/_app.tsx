@@ -3,7 +3,11 @@ import { AppProps } from 'next/app';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
-const reactQueryClient = new QueryClient();
+const reactQueryClient = new QueryClient({
+  defaultOptions: {
+    staleTime: 5 * 1000,
+  }
+});
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   return (
